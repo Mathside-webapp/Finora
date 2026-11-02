@@ -39,3 +39,7 @@ This v1 is a substantial prototype, but **does not yet implement** server-side a
 
 ## Development testing
 Run `node tests/money.test.mjs` and `node --check js/app.js`. Supabase integration and mobile/browser installation tests require your deployed project and supported browser.
+
+
+## Email/password accounts (v4)
+Anonymous sign-in and guest demo access have been removed. Enable Email provider and allow new user registrations in Supabase Authentication. Keep Anonymous disabled. Run both SQL migrations in order, including `202611020002_profiles.sql`. Configure `js/config.js` with your Supabase URL and publishable key (never service-role key). Users register using the Create account button, confirm their email if confirmation is enabled, and sign in. Previously registered users are backfilled into profiles. Offline access requires a previously authenticated session and vault passphrase.
